@@ -1,6 +1,6 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 
-import { useStore } from "../store";
+import { useRouteStore } from "../store";
 
 import { GetDynamicRoutes } from "../api";
 
@@ -20,13 +20,13 @@ const routes: RouteRecordRaw[] = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory("/app"),
   routes,
 });
 
 router.beforeEach((to, from, next) => {
   if (to.path !== "/404") {
-    const store = useStore();
+    const store = useRouteStore();
     if (store.routes.length < 1) {
       GetDynamicRoutes()
         .then((res: any) => {

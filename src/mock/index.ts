@@ -19,15 +19,21 @@ const mock: MockMethod[] = [
     response: () => {
       const routes = [
         {
-          path: "/page1",
-          name: "page1",
-          component: "page1.vue",
+          path: "/Cascader",
+          name: "级联选择器",
+          component: "Cascader.vue",
           children: [],
         },
         {
-          path: "/page2",
-          name: "page2",
-          component: "page2.vue",
+          path: "/CodeMirror",
+          name: "代码块",
+          component: "CodeMirror.vue",
+          children: [],
+        },
+        {
+          path: "/promise",
+          name: "手写promise",
+          component: "promise.vue",
           children: [],
         },
         {
@@ -38,7 +44,7 @@ const mock: MockMethod[] = [
             {
               path: "/page3-1",
               name: "page3-1",
-              component: "page3-1.vue",
+              component: "InputButton.vue",
             },
           ],
         },
@@ -72,6 +78,27 @@ const mock: MockMethod[] = [
         message: "操作成功",
         success: true,
       };
+    },
+  },
+
+  {
+    url: "/api/options",
+    method: "get",
+    response: () => {
+      return [
+        {
+          name: "1",
+          code: "1",
+        },
+        {
+          name: "2",
+          code: "2",
+        },
+        {
+          name: "3",
+          code: "3",
+        },
+      ];
     },
   },
 ];

@@ -3,7 +3,7 @@ import { RouteRecordRaw, Router } from "vue-router";
 
 let modules = import.meta.glob("../views/pages/*.vue");
 
-export const useStore = defineStore("my-store", {
+export const useRouteStore = defineStore("route-store", {
   state: () => {
     return {
       routes: [] as Array<RouteRecordRaw>,

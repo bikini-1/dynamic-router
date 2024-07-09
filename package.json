@@ -9,14 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/theme-one-dark": "^6.1.2",
+    "@types/node": "^20.10.4",
+    "@vueuse/core": "^10.7.0",
     "ant-design-vue": "^4.0.0",
     "axios": "^1.4.0",
+    "codemirror": "^6.0.1",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.2.3",
+    "less": "^4.2.0",
     "mockjs": "^1.1.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",

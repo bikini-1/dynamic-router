@@ -1,12 +1,23 @@
-<template>
-  <h1 id="page3">Page 3</h1>
-  <button @click="handleClick">Home</button>
-</template>
+<template></template>
 <script lang="ts" setup>
-import { useRouter } from "vue-router";
+import { reactive } from "vue";
 
-const router = useRouter();
+interface FormState {
+  username: string;
+  password: string;
+  remember: boolean;
+}
 
-const handleClick = () => router.push({ path: "/home" });
+const formState = reactive<FormState>({
+  username: "111",
+  password: "",
+  remember: true,
+});
+const onFinish = (values: any) => {
+  console.log("Success:", values);
+};
+
+const onFinishFailed = (errorInfo: any) => {
+  console.log("Failed:", errorInfo);
+};
 </script>
-<style lang="less" scoped></style>
