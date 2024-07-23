@@ -1,6 +1,8 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 
-import { useRouteStore } from "../store";
+import { useRouteStore } from "@/store/useRouteStore";
+import { useUserStore } from "@/store/useUserStore";
+import { storeToRefs } from "pinia";
 
 import { GetDynamicRoutes } from "../api";
 
@@ -11,11 +13,17 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: "/home",
-    component: () => import("../views/home-page.vue"),
+    name: "home",
+    component: () => import("../views/layout/layout.vue"),
   },
   {
     path: "/:pathMatch(.*)*",
     component: () => import("../views/404.vue"),
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: () => import("../views/login/index.vue"),
   },
 ];
 
@@ -42,6 +50,16 @@ router.beforeEach((to, from, next) => {
   } else {
     next();
   }
+  // if (to.path === "/login") {
+  //   const store = useUserStore();
+  //   if (store.token) {
+  //     next();
+  //   } else {
+  //     next();
+  //   }
+  // } else {
+  //   next();
+  // }
 });
 
 export default router;

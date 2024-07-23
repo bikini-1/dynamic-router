@@ -3,6 +3,7 @@
   <Menu style="width: 256px" mode="vertical" @click="handleClick">
     <AsideItem :routes="routes"></AsideItem>
   </Menu>
+  <el-table></el-table>
 </template>
 <script lang="ts" setup>
 import { computed } from "vue";

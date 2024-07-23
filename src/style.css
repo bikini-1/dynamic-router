@@ -5,7 +5,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,10 +24,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -56,15 +51,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.card {
-  padding: 2em;
-}
-
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  /* text-align: center; */
+  width: 100vw;
+  height: 100vh;
+  color: #213547;
 }
 
 @media (prefers-color-scheme: light) {

@@ -1,75 +1,55 @@
 import { MockMethod } from "vite-plugin-mock";
 
 const mock: MockMethod[] = [
-  {
-    url: "/api/test",
-    method: "get",
-    response: () => {
-      return {
-        status: 200,
-        message: "success",
-        data: "hello world",
-      };
-    },
-  },
-
+  // 路由接口
   {
     url: "/api/routes",
     method: "get",
     response: () => {
       const routes = [
         {
-          path: "/Cascader",
-          name: "级联选择器",
-          component: "Cascader.vue",
-          children: [],
+          id: 1,
+          pid: 0,
+          path: "/demo",
+          name: "demo",
+          component: "demo",
+          title: "demo",
+          hidden: false,
+          keepAlive: false,
+          redirect: "",
         },
         {
-          path: "/CodeMirror",
-          name: "代码块",
-          component: "CodeMirror.vue",
-          children: [],
+          id: 2,
+          pid: 0,
+          path: "/note",
+          name: "note",
+          component: "note",
+          title: "笔记",
+          hidden: false,
+          keepAlive: false,
+          redirect: "",
         },
         {
-          path: "/promise",
-          name: "手写promise",
-          component: "promise.vue",
-          children: [],
+          id: 3,
+          pid: 0,
+          path: "/system",
+          name: "system",
+          component: "system",
+          title: "系统设置",
+          hidden: false,
+          keepAlive: false,
+          redirect: "",
         },
         {
-          path: "/page3",
-          name: "page3",
-          // component: "page3.vue",
-          children: [
-            {
-              path: "/page3-1",
-              name: "page3-1",
-              component: "InputButton.vue",
-            },
-          ],
-        },
-
-        {
-          path: "/page4",
-          name: "page4",
-          component: "page3.vue",
-          children: [
-            {
-              path: "/page4-1",
-              name: "page4-1",
-              component: "page3-1.vue",
-            },
-            {
-              path: "/page4-2",
-              name: "page4-2",
-              component: "page3-1.vue",
-            },
-            {
-              path: "/page4-3",
-              name: "page4-3",
-              component: "page3-1.vue",
-            },
-          ],
+          id: 4,
+          pid: 3,
+          path: "/system/menu",
+          name: "menu",
+          component: "menu",
+          title: "菜单设置",
+          hidden: false,
+          keepAlive: false,
+          redirect: "",
         },
       ];
       return {
@@ -80,25 +60,22 @@ const mock: MockMethod[] = [
       };
     },
   },
-
+  // 登录接口
   {
-    url: "/api/options",
-    method: "get",
+    url: "/api/login",
+    method: "post",
     response: () => {
-      return [
-        {
-          name: "1",
-          code: "1",
-        },
-        {
-          name: "2",
-          code: "2",
-        },
-        {
-          name: "3",
-          code: "3",
-        },
-      ];
+      const user = {
+        username: "admin",
+        password: "admin",
+        token: "nBvj3uid8s9we-eie9w-mv9dfd-dfkjd99w01-9",
+      };
+      return {
+        code: 200,
+        data: user,
+        message: "操作成功",
+        success: true,
+      };
     },
   },
 ];
