@@ -2,12 +2,12 @@
   <div class="login">
     <div class="login-form">
       <h1>动态路由</h1>
-      <el-form :model="form" label-width="auto">
+      <el-form :model label-width="auto">
         <el-form-item label="用户名">
-          <el-input v-model="form.name" />
+          <el-input v-model="model.name" />
         </el-form-item>
         <el-form-item label="密码">
-          <el-input v-model="form.password" />
+          <el-input v-model="model.password" />
         </el-form-item>
       </el-form>
 
@@ -18,23 +18,23 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useRouter } from "vue-router";
-import { ref, computed } from "vue";
-import { storeToRefs } from "pinia";
-import { useUserStore } from "@/store/useUserStore";
+import { useRouter } from 'vue-router'
+import { ref, computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useUserStore } from '@/store/useUserStore'
 
-const router = useRouter();
-const store = useUserStore();
+const router = useRouter()
+const store = useUserStore()
 
-const form = ref({
-  name: "",
-  password: "",
-});
+const model = ref({
+  name: '',
+  password: ''
+})
 
 const onSubmit = async () => {
-  await store.setUserInfo(form.value);
-  router.push({ path: "/home" });
-};
+  await store.setUserInfo(form.value)
+  router.push({ path: '/home' })
+}
 </script>
 
 <style lang="less" scoped>
@@ -44,7 +44,7 @@ const onSubmit = async () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../../assets/bg.jpg") center center;
+  background: url('../../assets/bg.jpg') center center;
   .login-form {
     width: 400px;
     padding: 20px;

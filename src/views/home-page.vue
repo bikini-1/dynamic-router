@@ -6,24 +6,24 @@
   <el-table></el-table>
 </template>
 <script lang="ts" setup>
-import { computed } from "vue";
+import { computed } from 'vue'
 
-import type { MenuProps } from "ant-design-vue";
-import { Menu } from "ant-design-vue";
+import type { MenuProps } from 'ant-design-vue'
+import { Menu } from 'ant-design-vue'
 
-import { useRouteStore } from "../store";
-import { useRouter } from "vue-router";
+import { useRouteStore } from '../store'
+import { useRouter } from 'vue-router'
 
-import AsideItem from "./aside-item.vue";
+import AsideItem from './aside-item.vue'
 
-defineOptions({ name: "home-page" });
+defineOptions({ name: 'home-page' })
 
-const store = useRouteStore();
-const router = useRouter();
+const store = useRouteStore()
+const router = useRouter()
 
-const routes = computed(() => store.routes);
+const routes = computed(() => store.routes)
 
-const handleClick: MenuProps["onClick"] = (menuInfo) => {
-  router.push({ path: menuInfo.item.path });
-};
+const handleClick: MenuProps['onClick'] = menuInfo => {
+  router.push({ path: menuInfo.item.path })
+}
 </script>
